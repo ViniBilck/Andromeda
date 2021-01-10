@@ -1,25 +1,39 @@
+##--Vinicius Lourival Bilck--##
+
 import numpy as np
+import tkinter as tk
 
 ## Declaração
 Num = []
 Teste = []
 i=2
-M=int(input("Número: \n"))
-
+j=0
+M=int(input("Números: \n"))
+Sel=np.arange(1,M+1)
+       
 ## Verificação de números Primos 
 
-while (M>i):
-    if M%i == 0:
-        Teste.append(1)
-        i+=1
-    else:
-        i+=1
+def verificador(x):
+    i=2
+    Teste=[]
+    while (x>i):
         
-if len(Teste) == 0:
-    print("O número "+str(M)+" é primo")
-else:
-    print("O número "+str(M)+" não é primo")
+        if x%i == 0:
+            Teste.append(1)
+            i+=1
+        else:
+            i+=1
+        
+    if len(Teste) == 0:
+        Num.append(x)
+
+## Valores verificados
+        
+for j in range(1,M+1):
+    verificador(j)
+
+## Todos os primos que compoem o conjunto natural escolhido de 1 a M --> (Usuario escolhe)
+
+print(Num)
     
-##Para números grandes, um vetor grande será gerado, então posso acabar ajustar o código para que na 
-##primeira entrada de uma divisão com resto 0 inválidar. 
 
